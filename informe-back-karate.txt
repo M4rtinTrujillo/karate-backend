@@ -1,0 +1,57 @@
+
+INFORME DE ESTRATEGIA DE AUTOMATIZACIÓN – BACKEND
+
+En este reto de automatización trabajamos con la API pública de ServeRest, enfocándonos en validar el flujo completo de gestión de usuarios.
+La estrategia fue clara: cubrir todas las operaciones principales (crear, listar, buscar, actualizar y eliminar) asegurando que funcionen bien y que también manejen los errores de forma correcta.
+
+-------------------------------------------------
+ESTRATEGIA
+-------------------------------------------------
+La idea fue organizar las pruebas por endpoint, creando un archivo .feature para cada operación.
+Esto permitió separar responsabilidades y mantener el código más claro y ordenado.
+
+Además:
+- Se usaron correos dinámicos con UUID para evitar duplicados al crear usuarios.
+- Se incluyeron escenarios positivos (cuando todo sale bien) y escenarios negativos (cuando la API devuelve error).
+- Se reutilizaron datos y escenarios con "call", por ejemplo, crear un usuario antes de intentar buscarlo o eliminarlo.
+
+-------------------------------------------------
+ALCANCE DE LAS PRUEBAS
+-------------------------------------------------
+1. Listar usuarios
+   - Validar que la API devuelve correctamente el listado de usuarios.
+   - Probar un endpoint incorrecto y verificar que responda con error.
+
+2. Registrar usuario (POST /usuarios)
+   - Crear usuario con datos válidos y obtener status 201.
+   - Intentar crear usuario con email ya registrado y recibir el mensaje de error esperado.
+
+3. Buscar usuario por ID (GET /usuarios/{id})
+   - Consultar un ID existente y recibir los datos correctos.
+   - Probar con un ID inexistente y confirmar el mensaje “Usuário não encontrado”.
+
+4. Actualizar usuario (PUT /usuarios/{id})
+   - Modificar datos de un usuario creado previamente y validar la respuesta.
+   - Usar un ID inválido y comprobar que la API responde con error.
+
+5. Eliminar usuario (DELETE /usuarios/{id})
+   - Eliminar un usuario válido y verificar el mensaje de éxito.
+   - Intentar eliminar un usuario inexistente y recibir el mensaje de error correspondiente.
+
+-------------------------------------------------
+REPORTES
+-------------------------------------------------
+La ejecución de Karate genera reportes automáticos que muestran el detalle de cada escenario,
+con los pasos, tiempos de respuesta y los resultados de las validaciones.
+
+-------------------------------------------------
+CONCLUSIÓN
+-------------------------------------------------
+Con este proyecto de backend logramos:
+- Validar todo el ciclo CRUD de usuarios.
+- Probar tanto escenarios exitosos como de error.
+- Mantener el código organizado en features claros.
+- Usar buenas prácticas como datos dinámicos y reutilización de pasos.
+
+En resumen, la suite de pruebas cubre lo que se pedía en el reto y demuestra cómo aplicar
+Karate DSL de manera práctica y ordenada para pruebas de API.
