@@ -1,0 +1,37 @@
+name: CI - Karate Backend
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: karate-backend
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build (skip tests)
+        run: mvn -B -q install -DskipTests
+
+      - name: Run Karate with RunnerGeneralTest
+        run: mvn -B -q test -Dtest=RunnerGeneralTest
+
+      - name: Upload Karate Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: karate-reports
+          path: karate-backend/target/karate-reports/
