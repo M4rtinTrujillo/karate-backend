@@ -1,17 +1,6 @@
-name: CI - Karate Backend
-
-on:
-  push:
-    branches: [ "**" ]
-  pull_request:
-    branches: [ "**" ]
-
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: karate-backend
 
     steps:
       - name: Checkout
@@ -34,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: karate-reports
-          path: karate-backend/target/karate-reports/
+          path: target/karate-reports/
