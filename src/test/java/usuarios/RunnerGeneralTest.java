@@ -6,14 +6,14 @@ class RunnerGeneralTest {
 
     @Karate.Test
     Karate testAll() {
-        System.out.println("👉 Ejecutando todos los features CRUD...");
+        System.out.println("➡️ Ejecutando todos los features CRUD...");
         return Karate.run(
-                "listarUsuarios",
-                "crearUsuario",
-                "buscarUsuario",
-                "actualizarUsuario",
-                "eliminarUsuario"
+                "classpath:usuarios/listarUsuarios.feature",
+                "classpath:usuarios/crearUsuario.feature",
+                "classpath:usuarios/buscarUsuario.feature",
+                "classpath:usuarios/actualizarUsuario.feature",
+                "classpath:usuarios/eliminarUsuario.feature",
+                "classpath:usuarios/validacionesUsuario.feature"
         ).relativeTo(getClass());
     }
 }
-

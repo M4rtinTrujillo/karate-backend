@@ -1,32 +1,27 @@
 Feature: Crear usuario
-  @crearPositivo
-  Scenario: Crear usuario con email único
+
+  Background:
+    * url 'https://serverest.dev/usuarios'
+
+  Scenario Outline: Validar creación de usuario en diferentes condiciones
     * def randomEmail = 'qa_' + java.util.UUID.randomUUID() + '@test.com'
-    Given url 'https://serverest.dev/usuarios'
-    And request
-    """
-    {
-      "nome": "Fulano da Silva",
-      "email": "#(randomEmail)",
-      "password": "teste",
-      "administrador": "true"
-    }
-    """
-    When method post
-    Then status 201
-    * def userId = response._id
-    * karate.set('userId', userId)
-    * print 'Usuario creado con ID:', userId
-
-
-  @crearNegativo
-  Scenario: Intentar crear usuario con email duplicado
     * def fixedEmail = 'qa_tester@test.com'
-    Given url 'https://serverest.dev/usuarios'
-    And request { "nome": "Usuario Duplicado", "email": "#(fixedEmail)", "password": "1234", "administrador": "true" }
+    * def email = "<email>" == "random" ? randomEmail : fixedEmail
+    Given request
+      """
+      {
+        "nome": "<nombre>",
+        "email": "#(email)",
+        "password": "<password>",
+        "administrador": "<admin>"
+      }
+      """
     When method post
-    Then status 400
-    And match response.message == 'Este email já está sendo usado'
-    * print 'No se pudo crear usuario, email ya registrado:', fixedEmail
+    Then status <status>
+    And match response.message == "<mensaje>"
 
+    Examples:
+      | nombre           | email   | password | admin | status | mensaje                          |
+      | Fulano da Silva  | random  | teste    | true  | 201    | Cadastro realizado com sucesso   |
+      | Usuario Duplicado| fixed   | 1234     | true  | 400    | Este email já está sendo usado   |
 

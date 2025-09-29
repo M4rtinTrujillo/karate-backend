@@ -1,21 +1,28 @@
 Feature: Buscar usuario por ID
 
-  Scenario: Buscar un usuario existente
-    * def result = call read('classpath:usuarios/crearUsuario.feature@crearPositivo')
-    * def userId = result.userId
-    Given url 'https://serverest.dev/usuarios/' + userId
+  Background:
+    * url 'https://serverest.dev/usuarios'
+    * def randomEmail = 'qa_' + java.util.UUID.randomUUID() + '@test.com'
+    Given request
+      """
+      {
+        "nome": "Usuario QA",
+        "email": "#(randomEmail)",
+        "password": "12345",
+        "administrador": "true"
+      }
+      """
+    When method post
+    Then status 201
+    * def createdUserId = response._id
+
+  Scenario Outline: Validar búsqueda de usuario
+    Given path <id>
     When method get
-    Then status 200
-    And match response._id == userId
+    Then status <status>
+    And <validacion>
 
-
-
-
-
-  Scenario: Buscar un usuario inexistente
-
-    * def userId = 1234567891234560
-    Given url 'https://serverest.dev/usuarios/' + userId
-    When method get
-    Then status 400
-    And match response.message == 'Usuário não encontrado'
+    Examples:
+      | id              | status | validacion                                    |
+      | createdUserId   | 200    | match response._id == createdUserId           |
+      | 'ABCD1234EFGH5678' | 400 | match response.message == 'Usuário não encontrado' |

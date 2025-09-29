@@ -1,18 +1,28 @@
 Feature: Eliminar usuario
 
-  Scenario: Eliminar un usuario existente
-    * def result = call read('classpath:usuarios/crearUsuario.feature@crearPositivo')
-    * def userId = result.userId
-    Given url 'https://serverest.dev/usuarios/' + userId
+  Background:
+    * url 'https://serverest.dev/usuarios'
+    * def randomEmail = 'qa_' + java.util.UUID.randomUUID() + '@test.com'
+    Given request
+      """
+      {
+        "nome": "Usuario QA",
+        "email": "#(randomEmail)",
+        "password": "12345",
+        "administrador": "true"
+      }
+      """
+    When method post
+    Then status 201
+    * def createdUserId = response._id
+
+  Scenario Outline: Validar eliminación de usuario
+    Given path <id>
     When method delete
     Then status 200
-    And match response.message == "Registro excluído com sucesso"
+    And match response.message == <mensaje>
 
-
-  Scenario: eliminar un usuario inexistente
-    * def userId = '2345678901234567'
-    Given url 'https://serverest.dev/usuarios/' + userId
-    When method delete
-    Then status 200
-    And match response.message == "Nenhum registro excluído"
-    * print 'No se pudo eliminar, usuario inexistente con ID:', userId
+    Examples:
+      | id             | mensaje                          |
+      | createdUserId  | "Registro excluído com sucesso"  |
+      | '2345678901234567' | "Nenhum registro excluído"   |
