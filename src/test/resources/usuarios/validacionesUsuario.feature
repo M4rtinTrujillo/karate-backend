@@ -20,5 +20,5 @@ Feature: Validar creación de usuario con campos obligatorios faltantes
     Examples:
       | nombre              | email                 | password | mensaje                                                |
       | null                | "qa_test1@test.com"   | "1234"   | { nome: "nome deve ser uma string" }                   |
-      | "Usuario sin email" | null                  | "1234"   | { email: "email deve ser uma string" }                 |
-      | "Usuario sin pass"  | "qa_test2@test.com"   | null     | { password: "password deve ser uma string" }           |
+      | "Usuario sin email1" | null                  | "1234"   | { email: "email deve ser uma string" }                 |
+      | "Usuario sin  pass"  | "qa_test2@test.com"   | null     | { password: "password deve ser uma string" }           |

@@ -38,8 +38,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
       <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
     </a>
     <div class="nav-count">
-      <div id="nav-pass" class="bg-success">2</div>
-      <div id="nav-fail" class="bg-danger">0</div>
+      <div id="nav-pass" class="bg-success">1</div>
+      <div id="nav-fail" class="bg-danger">1</div>
     </div>
   </div>
   <div id="nav-env">
@@ -49,7 +49,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
     <div>Scenarios</div>
   </div>
   <div id="nav-date">
-    <div>2025-09-29 06:10:51 a. m.</div>
+    <div>2026-01-10 05:16:30 p. m.</div>
   </div>
 </div>
 
@@ -57,7 +57,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
           <div class="nav-item passed">
             <a href="#[1.1:25]"><span>[1.1:25]</span> <span>Validar creación de usuario en diferentes condiciones</span></a>
           </div>
-          <div class="nav-item passed">
+          <div class="nav-item failed">
             <a href="#[1.2:26]"><span>[1.2:26]</span> <span>Validar creación de usuario en diferentes condiciones</span></a>
           </div>
         </div>
@@ -84,7 +84,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
               </div>
             </div>
             <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>763</span>
+              <span>ms:</span>&nbsp;<span>585</span>
             </div>
           </div>
           <div class="step-row">
@@ -135,7 +135,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def randomEmail = &#39;qa_&#39; + java.util.UUID.randomUUID() + &#39;@test.com&#39;</span>
       </div>
     </div>
-    <div class="time-cell passed">14</div>
+    <div class="time-cell passed">9</div>
   </div>
 
    
@@ -191,7 +191,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>*</span>&nbsp;<span>def email = &quot;random&quot; == &quot;random&quot; ? randomEmail : fixedEmail</span>
       </div>
     </div>
-    <div class="time-cell passed">3</div>
+    <div class="time-cell passed">2</div>
   </div>
 
    
@@ -252,7 +252,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">743</div>
+    <div class="time-cell passed">571</div>
   </div>
 
    
@@ -261,7 +261,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="1.19">06:10:50.504 request:
+  <div class="preformatted" data-parent="1.19">17:16:28.950 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 127
@@ -269,9 +269,9 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Connection: Keep-Alive
 1 &gt; User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.15)
 1 &gt; Accept-Encoding: gzip,deflate
-{&quot;nome&quot;:&quot;Fulano da Silva&quot;,&quot;email&quot;:&quot;qa_93caa048-0d8e-478d-959b-47e301ab6480@test.com&quot;,&quot;password&quot;:&quot;teste&quot;,&quot;administrador&quot;:&quot;true&quot;}
+{&quot;nome&quot;:&quot;Fulano da Silva&quot;,&quot;email&quot;:&quot;qa_741e1017-9a6e-467c-bbb7-866b33345fe9@test.com&quot;,&quot;password&quot;:&quot;teste&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-06:10:51.226 response time in milliseconds: 695
+17:16:29.502 response time in milliseconds: 551
 1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
@@ -281,13 +281,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 18e98d7c63e01476936996832d746139
-1 &lt; date: Mon, 29 Sep 2025 11:10:51 GMT
+1 &lt; x-cloud-trace-context: 8f5692b7546b57509086da849fb23ba6
+1 &lt; date: Sat, 10 Jan 2026 22:16:29 GMT
 1 &lt; server: Google Frontend
 1 &lt; Content-Length: 82
 {
     &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
-    &quot;_id&quot;: &quot;ZjN2fzeYkw1yBTNE&quot;
+    &quot;_id&quot;: &quot;4HcR34p9dUHSR9d2&quot;
 }
 
 </div>   
@@ -365,8 +365,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
                 <span></span>
               </div>
             </div>
-            <div class="scenario-time passed">
-              <span>ms:</span>&nbsp;<span>482</span>
+            <div class="scenario-time failed">
+              <span>ms:</span>&nbsp;<span>533</span>
             </div>
           </div>
           <div class="step-row">
@@ -534,7 +534,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
         <span>When</span>&nbsp;<span>method post</span>
       </div>
     </div>
-    <div class="time-cell passed">479</div>
+    <div class="time-cell passed">525</div>
   </div>
 
    
@@ -543,7 +543,7 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-  <div class="preformatted" data-parent="2.19">06:10:51.237 request:
+  <div class="preformatted" data-parent="2.19">17:16:29.510 request:
 1 &gt; POST https://serverest.dev/usuarios
 1 &gt; Content-Type: application/json; charset=UTF-8
 1 &gt; Content-Length: 98
@@ -553,8 +553,8 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &gt; Accept-Encoding: gzip,deflate
 {&quot;nome&quot;:&quot;Usuario Duplicado&quot;,&quot;email&quot;:&quot;qa_tester@test.com&quot;,&quot;password&quot;:&quot;1234&quot;,&quot;administrador&quot;:&quot;true&quot;}
 
-06:10:51.712 response time in milliseconds: 474
-1 &lt; 400
+17:16:30.034 response time in milliseconds: 522
+1 &lt; 201
 1 &lt; access-control-allow-origin: *
 1 &lt; x-dns-prefetch-control: off
 1 &lt; x-frame-options: SAMEORIGIN
@@ -563,12 +563,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 1 &lt; x-content-type-options: nosniff
 1 &lt; x-xss-protection: 1; mode=block
 1 &lt; content-type: application/json; charset=utf-8
-1 &lt; x-cloud-trace-context: 10c503ad1b7478ef264a6630e8d2fe4d
-1 &lt; date: Mon, 29 Sep 2025 11:10:51 GMT
+1 &lt; x-cloud-trace-context: 9d83d3c09ff4d07ce6d17a422c5981f1
+1 &lt; date: Sat, 10 Jan 2026 22:16:30 GMT
 1 &lt; server: Google Frontend
-1 &lt; Content-Length: 53
+1 &lt; Content-Length: 82
 {
-    &quot;message&quot;: &quot;Este email já está sendo usado&quot;
+    &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
+    &quot;_id&quot;: &quot;70mwiz7mDGBACRYM&quot;
 }
 
 </div>   
@@ -584,13 +585,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="2.20">
-      <div class="step-ref passed">20</div>
+      <div class="step-ref failed">20</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell failed">
         <span>Then</span>&nbsp;<span>status 400</span>
       </div>
     </div>
-    <div class="time-cell passed">0</div>
+    <div class="time-cell failed">5</div>
   </div>
 
    
@@ -599,7 +600,15 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   
 
-     
+  <div class="preformatted" data-parent="2.20">17:16:30.042 classpath:usuarios/crearUsuario.feature:20
+Then status 400
+status code was: 201, expected: 400, response time in milliseconds: 522, url: https://serverest.dev/usuarios, response: 
+{
+    &quot;message&quot;: &quot;Cadastro realizado com sucesso&quot;,
+    &quot;_id&quot;: &quot;70mwiz7mDGBACRYM&quot;
+}
+classpath:usuarios/crearUsuario.feature:20
+</div>   
 
   
 
@@ -612,13 +621,13 @@ posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
 
   <div class="step-row">
     <div class="step-container" id="2.21">
-      <div class="step-ref passed">21</div>
+      <div class="step-ref skipped">21</div>
       
-      <div class="step-cell passed">
+      <div class="step-cell skipped">
         <span>And</span>&nbsp;<span>match response.message == &quot;Este email já está sendo usado&quot;</span>
       </div>
     </div>
-    <div class="time-cell passed">2</div>
+    <div class="time-cell skipped">0</div>
   </div>
 
    
